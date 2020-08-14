@@ -6,31 +6,43 @@ public class Ex1_1_13
 {
 	public static void main(String[] args)
 	{
-		System.out.println("lg(1) = " + lg(1));
-		System.out.println("lg(2) = " + lg(2));
-		System.out.println("lg(3) = " + lg(3));
-		System.out.println("lg(4) = " + lg(4));
+		int[][] a = {
+			{1, 2},
+			{3, 4},
+			{5, 6}
+		};
+		int[][] b = transpose(a);
+		for (int i = 0; i < b.length; i++)
+		{
+			for (int j = 0; j <b[0].length ; j++)
+			{
+				System.out.print(b[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		
+		
 	}
 	
-	public static int lg(int N)
+	public static int[][] transpose(int[][] a)
 	{
-		if (N <= 0)
+		if (a == null || a.length == 0)
 		{
-			return -1;
+			return null;
 		}
 		
-		int prod = 1;
-		int exponent = 0;
-		while(prod < N)
+		int rows = a.length;
+		int columns = a[0].length;
+		int[][] transposed = new int[columns][rows];
+		for (int i = 0; i < rows; i++)
 		{
-			prod *= 2;
-			exponent++;
+			for (int j = 0; j < columns; j++)
+			{
+				transposed[j][i] = a[i][j];
+			}
 		}
-		
-		if (prod == N)
-		{
-			return exponent;
-		}
-		return exponent - 1;
+		return transposed;
 	}
+	
 }
