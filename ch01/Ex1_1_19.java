@@ -17,8 +17,11 @@ public class Ex1_1_19
 class Fibonacci
 {
 	public static long[] fib = new long[200];
-	fib[0] = 0;
-	fib[1] = 1;
+	static
+	{
+		fib[0] = 0;
+		fib[1] = 1;
+	}
 	public static long F(int N)
 	{
 		if (N == 0 || N == 1)
@@ -29,10 +32,7 @@ class Fibonacci
 		{
 			return fib[N];
 		}
-		else
-		{
-			fib[N] = F(N);
-			return F(N - 1) + F(N - 2);
-		}
+		fib[N] = F(N - 1) + F(N - 2);
+		return F(N - 1) + F(N - 2);
 	}
 }
