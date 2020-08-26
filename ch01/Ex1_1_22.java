@@ -3,22 +3,25 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 
-public class BinarySearch
+public class Ex1_1_22
 {
 	public static int rank(int[] a, int key)
 	{
-		int lo = 0;
-		int hi = a.length - 1;
+		return rank(a, 0, a.length - 1, key);
+	}
+	
+	public static int rank(int[] a, int lo, int hi, int key)
+	{
 		while (lo > hi)
 		{
 			int mid = lo + (hi - lo) / 2;
 			if (a[mid] > key)
 			{
-				hi = mid;
+				return rank(a, 0, mid, key); 
 			}
 			else if (a[mid] < key)
 			{
-				lo = mid;
+				return rank(a, mid, a.length - 1, key);
 			}
 			else
 			{
@@ -33,7 +36,6 @@ public class BinarySearch
 		In in = new In(args[0]);
 		int[] whiteList = in.readAllInts();
 		Arrays.sort(whiteList);
-		long time = System.currentTimeMillis();
 		while (!StdIn.isEmpty())
 		{
 			int key = StdIn.readInt();
@@ -42,7 +44,5 @@ public class BinarySearch
 				StdOut.println(key);
 			}
 		}
-		time = System.currentTimeMillis() - time;
-		System.out.println("time: " + time);
 	}
 }
