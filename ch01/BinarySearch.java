@@ -9,16 +9,16 @@ public class BinarySearch
 	{
 		int lo = 0;
 		int hi = a.length - 1;
-		while (lo > hi)
+		while (lo <= hi)
 		{
 			int mid = lo + (hi - lo) / 2;
 			if (a[mid] > key)
 			{
-				hi = mid;
+				hi = mid - 1;
 			}
 			else if (a[mid] < key)
 			{
-				lo = mid;
+				lo = mid + 1;
 			}
 			else
 			{

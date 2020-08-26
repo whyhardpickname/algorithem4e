@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class Ex1_1_22
+public class Ex1_1_23
 {
 	private static int depth  = 0;
 	private static ArrayList<ArrayList<Integer>> ranges = new ArrayList<>();
@@ -49,13 +49,18 @@ public class Ex1_1_22
 	
 	public static void main(String[] args)
 	{
-		In in = new In(args[0]);
+		int sign = 1;
+		if (args[0].compareTo("-") == 0)
+		{
+			sign = -1;
+		}
+		In in = new In(args[1]);
 		int[] whiteList = in.readAllInts();
 		Arrays.sort(whiteList);
 		while (!StdIn.isEmpty())
 		{
 			int key = StdIn.readInt();
-			if (rank(whiteList, key) < 0)
+			if (sign * rank(whiteList, key) < 0)
 			{
 				StdOut.println(key);
 				printArgs();

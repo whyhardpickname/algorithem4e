@@ -8,59 +8,31 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class Ex1_1_22
+public class Ex1_1_24
 {
 	private static int depth  = 0;
 	private static ArrayList<ArrayList<Integer>> ranges = new ArrayList<>();
 	private static ArrayList<Integer> range = new ArrayList<>();
 	
-	public static int rank(int[] a, int key)
-	{
-		depth = 0;
-		ranges = new ArrayList<>();
-		return rank(a, 0, a.length - 1, key);
-	}
-	
-	public static int rank(int[] a, int lo, int hi, int key)
+	public static int gcd(int a, int b)
 	{
 		depth++;
 		range = new ArrayList<>();
-		range.add(lo);
-		range.add(hi);
+		range.add(a);
+		range.add(b);
 		ranges.add(range);
-		while (lo <= hi)
+		if ( a % b == 0)
 		{
-			int mid = lo + (hi - lo) / 2;
-			if (a[mid] > key)
-			{
-				return rank(a, lo, mid - 1, key); 
-			}
-			else if (a[mid] < key)
-			{
-				return rank(a, mid + 1, hi, key);
-			}
-			else
-			{
-				return mid;
-			}
+			return b;
 		}
-		return -1;
+		return gcd(b, a % b);
 	}
 	
 	public static void main(String[] args)
 	{
-		In in = new In(args[0]);
-		int[] whiteList = in.readAllInts();
-		Arrays.sort(whiteList);
-		while (!StdIn.isEmpty())
-		{
-			int key = StdIn.readInt();
-			if (rank(whiteList, key) < 0)
-			{
-				StdOut.println(key);
-				printArgs();
-			}
-		}
+		System.out.println("gcd(105, 24) = " + gcd(105, 24));
+		printArgs();
+		System.out.println("gcd(1111111, 1234567) = " + gcd(1111111, 1234567));
 	}
 	
 	public static void printArgs()
