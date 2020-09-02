@@ -40,11 +40,19 @@ public class Ex1_1_30
 			}
 		}
 		
+		StdOut.print("      ");
+		for (int i = 0; i < a[0].length;i++)
+		{
+			StdOut.printf("%5d ", i);
+		}
+		StdOut.println();
+		
 		for (int i = 0; i < a.length; i++)
 		{
+			StdOut.printf("%5d ", i);
 			for (int j = 0; j < a[0].length; j++)
 			{
-				StdOut.print("a[" + i + "][" + j + "] = " + a[i][j] + " ");
+				StdOut.printf("%5s ", a[i][j]);
 			}
 			StdOut.println();
 		}
