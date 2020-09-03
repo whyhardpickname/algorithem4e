@@ -5,24 +5,35 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
 
 public class Ex1_1_35
 {	
 	public static void main(String[] args)
 	{
-		double[] theory = distribution(6);
-		double[] experiment = new double[2 * SIDES + 1];
-		int N = 1;
-		while (!isAccuracy(dist, experiment))
+		int SIDES = 6;
+		double[] dist = distribution(SIDES);
+		double[] counter = new double[2 * SIDES + 1];
+		double[] frequency = new double[2 * SIDES + 1];
+		long N = 1;
+		long trials = 0;
+		do
 		{
-			N *= 2;
+			N *= 10;
 			for (int i = 0; i < N; i++)
 			{
-				experiment[uniform(1, 7)] += 1;
+				int sum = StdRandom.uniform(1, SIDES + 1)
+							+ StdRandom.uniform(1, SIDES + 1);
+				counter[sum] += 1;
 				
 			}
-			
-		}
+			trials += N;
+			for (int k = 2; k <= 2 * SIDES; k++)
+			{
+				frequency[k] = counter[k] / trials;
+			}
+			printDiff(trials, dist, frequency);
+		} while (!isAccuracy(dist, frequency, 0.001));
 	}
 	
 	public static double[] distribution(int SIDES)
@@ -39,11 +50,12 @@ public class Ex1_1_35
 		{
 			dist[k] /= 36;
 		}
+		return dist;
 	}
 	
 	public static boolean isAccuracy(double[] a, double[] b, double accuracy)
 	{
-		for (int i = 2; i < a.length)
+		for (int i = 2; i < a.length; i++)
 		{
 			if (Math.abs(a[i] - b[i]) >= accuracy)
 			{
@@ -51,6 +63,21 @@ public class Ex1_1_35
 			}
 		}
 		return true;
+	}
+	
+	public static void printDiff(long N, double[] dist, double[] frequency)
+	{
+		StdOut.println("N = " + N);
+		for(int i = 2; i < dist.length;i++)
+		{
+			StdOut.printf("%.4f ", dist[i]);
+		}
+		StdOut.println();
+		for(int i = 2; i < frequency.length;i++)
+		{
+			StdOut.printf("%.4f ", frequency[i]);
+		}
+		StdOut.println();
 	}
 
 
