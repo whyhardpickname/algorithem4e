@@ -9,5 +9,19 @@ import edu.princeton.cs.algs4.StdRandom;
 
 public class Ex6
 {	
+	public static void main(String[] args)
+	{
+		String a = "actgacg";
+		String b = "tgacgac";
+		StdOut.println("isCircularRotation(String a, String b) = " + isCircularRotation(a, b));
+	}
 	
+	public static boolean isCircularRotation(String a, String b)
+	{
+		if (a == null || b == null)
+		{
+			return false;
+		}
+		return a.length() == b.length() && (a + a).indexOf(b) != -1;
+	}
 }
