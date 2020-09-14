@@ -8,15 +8,19 @@
 // import edu.princeton.cs.algs4.StdRandom;
 // import edu.princeton.cs.algs4.StdDraw;
 
-public class Ex11
+public class Ex12
 {	
 	public static void main(String[] args)
 	{
-		SmartDate date = new SmartDate(2020, 2, 30);
-		System.out.println(date);
+		SmartDate date = new SmartDate(2020, 9, 14);
+		System.out.println(date.dayOfTheWeek());
 	}
 }
-
+enum Weekday
+{
+	Monday, Tuesday, Wednesday, 
+	Thursday, Friday, Saturday, Sunday; 
+}
 class SmartDate
 {
 	private int year;
@@ -96,5 +100,28 @@ class SmartDate
 	public String toString()
 	{
 		return year + "/" + month + "/" + day;
+	}
+	public Weekday dayOfTheWeek()
+	{
+		int weekday = (day + 2 * month + 3 * (month + 1) / 5 + year
+			+ year / 4 - year / 100 + year / 400 + 1) % 7;
+		switch(weekday)
+		{
+			case 0 : 
+				return Weekday.Sunday;
+			case 1 : 
+				return Weekday.Monday;
+			case 2 : 
+				return Weekday.Tuesday;
+			case 3 : 
+				return Weekday.Wednesday;
+			case 4 : 
+				return Weekday.Thursday;
+			case 5 : 
+				return Weekday.Friday;
+			case 6 : 
+				return Weekday.Saturday;
+		}
+		return Weekday.Monday;
 	}
 }
