@@ -1,3 +1,4 @@
+import java.util.*;
 public class Transaction implements Comparable<Transaction>
 {
 	String who;
@@ -60,5 +61,10 @@ public class Transaction implements Comparable<Transaction>
 	public int compareTo(Transaction that)
 	{
 		return when.compareTo(that.when());
+	}
+	
+	public int hashCode()
+	{
+		return Objects.hash(who, when, amount);
 	}
 }

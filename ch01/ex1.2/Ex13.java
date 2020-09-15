@@ -16,6 +16,7 @@ public class Ex13
 		SmartDate date2 = new SmartDate(2020, 6, 19);
 		Transaction t1 = new Transaction("mark", date1, 2200);
 		Transaction t2 = new Transaction("mark", date2, 2200);
-		System.out.println(t1.equals(t2));
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
 	}
 }

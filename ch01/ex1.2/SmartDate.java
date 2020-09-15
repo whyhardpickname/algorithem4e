@@ -1,3 +1,4 @@
+import java.util.*;
 enum Weekday
 {
 	Monday, Tuesday, Wednesday, 
@@ -141,5 +142,10 @@ public class SmartDate
 			return month - other.month;
 		}
 		return day - other.day;
+	}
+	
+	public int hashCode()
+	{
+		return Objects.hash(year, month, day);
 	}
 }
