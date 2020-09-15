@@ -8,11 +8,14 @@
 // import edu.princeton.cs.algs4.StdRandom;
 // import edu.princeton.cs.algs4.StdDraw;
 
-public class Ex12
+public class Ex13
 {	
 	public static void main(String[] args)
 	{
-		SmartDate date = new SmartDate(2020, 9, 14);
-		System.out.println(date.dayOfTheWeek());
+		SmartDate date1 = new SmartDate(2020, 6, 18);
+		SmartDate date2 = new SmartDate(2020, 6, 19);
+		Transaction t1 = new Transaction("mark", date1, 2200);
+		Transaction t2 = new Transaction("mark", date2, 2200);
+		System.out.println(t1.equals(t2));
 	}
 }
