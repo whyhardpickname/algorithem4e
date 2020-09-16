@@ -10,5 +10,14 @@
 
 public class Ex16
 {	
-	
+	public static void main(String[] args)
+	{
+		Rational r1 = new Rational(1, 3);
+		Rational r2 = new Rational(1, 2);
+		System.out.println(r1.plus(r2));
+		System.out.println(r1.minus(r2));
+		System.out.println(r1.times(r2));
+		System.out.println(r1.divides(r2));
+		System.out.println(r1.equals(r2));
+	}
 }

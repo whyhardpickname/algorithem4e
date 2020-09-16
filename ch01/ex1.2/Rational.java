@@ -10,20 +10,83 @@
 
 public class Rational
 {	
-	public final long numerator;
-	public final long denominator;
+	private final long numerator;
+	private final long denominator;
 	
-	public Rational(int numerator, int denominator)
+	public Rational(long numerator, long denominator)
 	{
-		
+		long greatestCommonDivisor = gcd(numerator, denominator);
+		this.numerator = numerator / greatestCommonDivisor;
+		this.denominator = denominator / greatestCommonDivisor;
 	}
 	
-	public static int gcd(int a, int b)
+	public long getNumerator()
+	{
+		return numerator;
+	}
+	
+	public long getDenominator()
+	{
+		return denominator;
+	}
+	
+	public Rational plus(Rational b)
+	{
+		long numerator = this.numerator * b.getDenominator() + this.denominator * b.getNumerator();
+		long denominator = this.denominator * b.getDenominator();
+		return new Rational(numerator, denominator);
+	}
+	
+	public Rational minus(Rational b)
+	{
+		long numerator = this.numerator * b.getDenominator() - this.denominator * b.getNumerator();
+		long denominator = this.denominator * b.getDenominator();
+		return new Rational(numerator, denominator);
+	}
+	
+	public Rational times(Rational b)
+	{
+		long numerator = this.numerator * b.getNumerator();
+		long denominator = this.denominator * b.getDenominator();
+		return new Rational(numerator, denominator);
+	}
+	
+	public Rational divides(Rational b)
+	{
+		long numerator = this.numerator * b.getDenominator();
+		long denominator = this.denominator * b.getNumerator();
+		return new Rational(numerator, denominator);
+	}
+	
+	public boolean equals(Rational that)
+	{
+		if (that == null)
+		{
+			return false;
+		}
+		if (that == this)
+		{
+			return true;
+		}
+		if (this.getClass() != that.getClass())
+		{
+			return false;
+		}
+		Rational another = (Rational) that;
+		return numerator == another.getNumerator()
+			&& denominator == another.getDenominator();
+	}
+	public static long gcd(long a, long b)
 	{
 		if (a % b == 0)
 		{
 			return b;
 		}
 		return gcd(b, a % b);
+	}
+	
+	public String toString()
+	{
+		return numerator + " / " + denominator; 
 	}
 }
