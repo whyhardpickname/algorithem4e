@@ -12,6 +12,14 @@ public class Ex18
 {	
 	public static void main(String[] args)
 	{
-		
+		Accumulator a = new Accumulator();
+		a.add(600);
+		a.add(470);
+		a.add(170);
+		a.add(430);
+		a.add(300);
+		System.out.println(a.mean());
+		System.out.println(a.var());
+		System.out.println(a.std());
 	}
 }

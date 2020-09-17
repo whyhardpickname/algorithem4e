@@ -10,6 +10,13 @@ public class SmartDate
 	private int month;
 	private int day;
 	
+	public SmartDate(String s)
+	{
+		String[] date = s.split("/");
+		year = Integer.parseInt(date[0]);
+		month = Integer.parseInt(date[1]);
+		day = Integer.parseInt(date[2]);
+	}
 	public SmartDate(int year, int month, int day)
 	{
 		if (year < 0) 
