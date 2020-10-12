@@ -1,7 +1,9 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class ResizingArrayStack<Item>
+import java.util.Iterator;
+
+public class ResizingArrayStack<Item> implements Iterable<Item>
 {
     private int n;
     private Item[] a;
@@ -16,6 +18,30 @@ public class ResizingArrayStack<Item>
         a = temp;
     }
 
+    public Iterator<Item> iterator()
+    {
+        return new ReverseArrayIterator();
+    }
+
+    private class ReverseArrayIterator implements Iterator<Item>
+    {
+        private int i = n;
+
+        public boolean hasNext()
+        {
+            return i > 0;
+        }
+
+        public Item next()
+        {
+            return a[--i];
+        }
+
+        public void remove()
+        {
+
+        }
+    }
     public ResizingArrayStack(int cap)
     {
         a = (Item[]) new Object[cap];
