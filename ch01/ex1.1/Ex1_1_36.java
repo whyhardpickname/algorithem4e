@@ -11,8 +11,7 @@ public class Ex1_1_36
 {	
 	public static void main(String[] args)
 	{
-		int 
-		for ()
+
 	}
 	
 	public static void shuffle(int[] a)
@@ -52,6 +51,6 @@ public class Ex1_1_36
 	
 	public static void printTable(int[][] t) 
 	{
-		for (int i = 0; i < )
+
 	}
 }

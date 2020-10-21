@@ -1,8 +1,8 @@
-public class Ex1_1_1
+public class Ex1_1_2
 {
 	public static void main(String[] args)
 	{
-		double a = ;
+		double a = 1;
 		double b = 200.0000002;
 		boolean c = true;
 		

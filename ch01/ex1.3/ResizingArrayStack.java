@@ -59,8 +59,8 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
     public Item pop()
     {
         Item item = a[--n];
-        if (n > 0 && n == a.length / 4)
         a[n] = null;
+        if (n > 0 && n == a.length / 4)
         {
             resize(a.length / 2);
         }

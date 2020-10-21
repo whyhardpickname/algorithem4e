@@ -10,26 +10,27 @@
 
 public class Accumulator
 {	
-	private int m;
-	private double n;
+	private double m;
+	private int n;
 	private double s;
 	
 	public Accumulator()
 	{
 		n = 0;
-		sum = 0;
+		m = 0;
 		s = 0;
 	}
-	public double add(double x)
+	public void add(double x)
 	{
 		n++;
+		s = s + 1.0 * (n - 1) / n * (x - m) * (x - m);
 		m = m + (x - m) / n;
-		s = s + 1.0 * (n - 1) / n * (x - m) * (x - m)
+
 	}
 	
 	public double mean()
 	{
-		return m
+		return m;
 	}
 	
 	public double var()

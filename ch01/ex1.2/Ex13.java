@@ -7,7 +7,7 @@
 // import edu.princeton.cs.algs4.StdOut;
 // import edu.princeton.cs.algs4.StdRandom;
 // import edu.princeton.cs.algs4.StdDraw;
-
+package ex1_1;
 public class Ex13
 {	
 	public static void main(String[] args)
