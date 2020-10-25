@@ -1,6 +1,5 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-
 import java.util.Iterator;
 
 public class ResizingArrayStack<Item> implements Iterable<Item>
@@ -79,8 +78,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
 
     public static void main(String[] args)
     {
-        ResizingArrayStack<String> s;
-        s = new ResizingArrayStack<String>(100);
+        ResizingArrayStack<String> s = new ResizingArrayStack<>(1);
         while (!StdIn.isEmpty())
         {
             String item = StdIn.readString();
