@@ -30,10 +30,7 @@ public class ListStack<Item> implements Iterable<Item>
         n--;
         return item;
     }
-    public Item peek()
-    {
-        return first.item;
-    }
+
     public boolean isEmpty()
     {
         return n == 0;

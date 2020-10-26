@@ -30,11 +30,6 @@ public class FixedCapacityStackOfString {
         return n;
     }
 
-    public boolean isFull()
-    {
-        return n == a.length;
-    }
-
     public static void main(String[] args)
     {
         FixedCapacityStackOfString s;
