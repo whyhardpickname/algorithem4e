@@ -48,15 +48,17 @@ public class ListStack<Item> implements Iterable<Item>
 
     private class ReverseArrayIterator implements Iterator<Item>
     {
-        private Node iter = first;
+        private Node current = first;
         public boolean hasNext()
         {
-            return first.next != null;
+            return current != null;
         }
 
         public Item next()
         {
-            return first.next.item;
+            Item item = current.item;
+            current = current.next;
+            return item;
         }
 
         public void remove()
